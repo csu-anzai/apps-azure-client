@@ -139,13 +139,13 @@ export class SettingsComponent implements  OnInit {
 
   async ngOnInit()
   {
-    let link = await chase.link.get();
+    let linkInfo = await link.get();
 
-    if ( link )
+    if ( linkInfo )
     {
       this.linkExists= true;
-      this.clientId =link.settings.clientId;
-      this.subscriptionName = link.settings.subscriptionName;
+      this.clientId =linkInfo.settings.clientId;
+      this.subscriptionName = linkInfo.settings.subscriptionName;
     }
     else
       {

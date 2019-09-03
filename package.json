@@ -21,12 +21,11 @@
     "@angular/platform-browser": "~8.2.4",
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
-    "@azure/arm-resources": "^1.1.0",
     "@azure/arm-subscriptions": "^2.0.0",
-    "@azure/ms-rest-browserauth": "^0.1.4",
+    "@azure/ms-rest-js": "^2.0.4",
     "@chase/apps-client-sdk": "^0.1.8",
     "rxjs": "~6.5.2",
-    "zone.js": "~0.10.1"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.2",
