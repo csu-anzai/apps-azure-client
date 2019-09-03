@@ -29,7 +29,7 @@ echo "Building app..."
 ng build --configuration $APP_ENVIRONMENT 
 
 cd dist 
-APP_NAME=ls | sort -n | head -1
+APP_NAME=`ls | sort -n | head -1`
 cd $APP_NAME
 
 find . -type f -exec sha256sum {} > module.map
