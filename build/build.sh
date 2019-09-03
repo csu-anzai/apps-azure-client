@@ -15,20 +15,18 @@ else
     APP_ENVIRONMENT=staging  
 fi
 
-echo "Builing app..."
+echo "Updating npm version..."
 
 sed -i 's/1\.0\.0/'$APP_VERSION'/g' ./src/environments/config.$APP_ENVIRONMENT.ts
-
 npm --no-git-tag-version version $VERSION
+
+echo "Updating npm pacakages..."
+
 npm install
 npm update
 
-if [ "$APP_ENVIRONMENT" == "production" ]; then
-    NG_FLAGS=--prod
-fi
-
-
-ng build --configuration $APP_ENVIRONMENT $NG_FLAGS
+echo "Building app..."
+ng build --configuration $APP_ENVIRONMENT 
 
 cd dist 
 APP_NAME=ls | sort -n | head -1
