@@ -23,7 +23,7 @@ npm --no-git-tag-version version $VERSION
 echo "Updating npm pacakages..."
 
 npm install
-npm update
+npm update 
 
 echo "Building app..."
 ng build --configuration $APP_ENVIRONMENT 
