@@ -1,0 +1,66 @@
+<style>
+    .input::placeholder
+    {
+        color:#888
+    }
+    mat-form-field {
+      width: 350px;
+    }
+</style>
+
+<form style="padding-top:20px;font-size: 16px;font-family: Roboto;color:#ddd" (ngSubmit)="save()" #myForm="ngForm" >
+    <div style="margin-bottom: 15px;color:#eee" *ngIf="linkExists">
+          <div style="margin-bottom:5px"><span style="color:#aaa">Client Id:</span> {{clientId}}</div>
+          <div><span style="color:#aaa">Subscription:</span> {{subscriptionName}}                  </div>
+    </div>
+
+    <div *ngIf="linkExists==false" style="overflow-y:scroll;height: 360px">
+          <div style="margin-bottom: 10px;color:#aaa">
+              Please enter your Azure Credentials:
+          </div>
+          <div>
+          <mat-form-field>
+              <mat-label>Client Id</mat-label>
+              <input  matInput  style="width:450px" [(ngModel)]="clientId" (ngModelChange)="credChanged()" placeholder="Client Id"  name="clientId"  required>
+          </mat-form-field>
+          </div>
+          <div>
+          <mat-form-field>
+              <mat-label>Client Secret</mat-label>
+              <input  matInput style="width:450px"  [(ngModel)]="clientSecret"   (ngModelChange)="credChanged()"  placeholder="Client Secret" name="clientSecret"  required>
+          </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+                <mat-label>Tenant Id</mat-label>
+                <input  matInput style="width:450px" [(ngModel)]="tenantId"   (ngModelChange)="credChanged()"  placeholder="Tenant Id" name="tenantId"  required>
+            </mat-form-field>
+          </div>
+
+          <div *ngIf="subscriptions && subscriptions.length > 1" >
+            <div style="margin-top:10px;margin-bottom: 5px;color:#aaa">
+                Please select a subscription:
+            </div>
+            <mat-form-field>
+              <mat-label>Subscriptions</mat-label>
+              <mat-select [(value)]="selectedSubscription" required >
+                <mat-option *ngFor="let sub of subscriptions" [value]="sub.subscriptionId">
+                  {{sub.displayName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div style="margin-top:15px;font-weight: bolder;margin-bottom:15px;color:green" *ngIf="clientId && clientSecret && tenantId && credsValid==true">
+              Azure Credentials are valid.<br/>
+              <span style="color:#aaa;margin-top:3px;font-size:14px">Connected. </span>
+          </div>
+
+          <div style="font-weight: bolder;margin-top:15px;margin-bottom:15px;color:#b74540" *ngIf="clientId && clientSecret && tenantId && credsValid==false">
+              Azure Credentials are invalid.
+          </div>
+
+          <button type="submit" [disabled]='!credsValid || !selectedSubscription' mat-raised-button  color="primary" style="width:350px;margin-top: 25px;" >Save</button>
+    </div>
+</form>
