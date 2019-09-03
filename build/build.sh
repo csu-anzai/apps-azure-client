@@ -12,7 +12,7 @@ npm install -g @angular/cli
 if [ "$BRANCH" == "master" ]; then
     APP_ENVIRONMENT=production
 else
-    APP_ENVIRONMENT=staging
+    APP_ENVIRONMENT=staging  
 fi
 
 echo "Builing app..."
