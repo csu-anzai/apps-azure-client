@@ -19,6 +19,7 @@
           "options": {
             "outputPath": "dist/azure",
             "index": "src/index.html",
+            "ssl": true,"baseHref": "/apps/azure/",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
@@ -30,7 +31,7 @@
             ],
             "styles": [
               "src/styles.scss"
-            ],
+            ]
     
           },
           "configurations": {
@@ -40,6 +41,7 @@
                   "replace": "src/environments/config.ts",
                 "with": "src/environments/config.staging.ts"
               }],
+              "ssl": true,"baseHref": "/apps/azure/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -58,6 +60,7 @@
               ]
             },
             "production": {
+              "ssl": true,"baseHref": "/apps/azure/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/config.ts",
