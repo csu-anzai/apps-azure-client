@@ -17,8 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "/apps/aws/",
-            "outputPath": "dist/aws",
+            "baseHref": "/apps/azure/",
+            "outputPath": "dist/azure",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -40,7 +40,7 @@
                   "replace": "src/environments/config.ts",
                 "with": "src/environments/config.staging.ts"
               }],              
-              "baseHref": "/apps/aws/",
+              "baseHref": "/apps/azure/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -64,7 +64,7 @@
                   "replace": "src/environments/config.ts",
                 "with": "src/environments/config.production.ts"
               }],              
-              "baseHref": "/apps/aws/",
+              "baseHref": "/apps/azure/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -88,7 +88,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "ssl": true,            
-            "baseHref": "/apps/aws/",
+            "baseHref": "/apps/azure/",
             "port": 4201,
             "browserTarget": "chase:build"
           },
